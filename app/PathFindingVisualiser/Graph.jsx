@@ -5,7 +5,7 @@ const allNodeStates = new Array(18);
 
 function createAllNodeStates() {
   for (var i = 0; i < 18; i++) {
-    allNodeStates[i] = new Array(50);
+    allNodeStates[i] = new Array(49);
     for (var j = 0; j < 49; j++) {
       allNodeStates[i][j] = useState(1);
     }
