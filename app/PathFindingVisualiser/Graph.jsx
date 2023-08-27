@@ -6,7 +6,7 @@ const allNodeStates = new Array(18);
 function createAllNodeStates() {
   for (var i = 0; i < 18; i++) {
     allNodeStates[i] = new Array(50);
-    for (var j = 0; j < 50; j++) {
+    for (var j = 0; j < 49; j++) {
       allNodeStates[i][j] = useState(1);
     }
   }
@@ -27,7 +27,7 @@ export default function Graph() {
         maxEachNodeHeight
       ) - 0.25;
     const newEachNodeWidth = Math.min(
-      (window.innerWidth - 2 * padding) / (50 * 16),
+      (window.innerWidth - 2 * padding) / (49 * 16),
       maxEachNodeWidth
     );
 
@@ -48,7 +48,7 @@ export default function Graph() {
 
   const allRows = Array.from({ length: 18 }, (_, i) => (
     <Row
-      breadth={50}
+      breadth={49}
       key={`row-${i}`}
       id={`row-${i}`}
       width={eachNodeWidth}
