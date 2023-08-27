@@ -1,5 +1,5 @@
 import Graph from "./Graph";
-import resetAllNodeStates, { selectAlgo } from "./graphControl";
+import resetAllNodeStates, { selectAlgo, runAlgo } from "./graphControl";
 
 function NavBar() {
   return (
@@ -71,7 +71,7 @@ function OptionsBar() {
           </li>
           <li>
             <a>
-              <div className="outline outline-2 outline-blue-200 h-4 w-4 inline-block bg-orange-500"></div>
+              <div className="outline outline-2 outline-blue-200 h-4 w-4 inline-block bg-purple-300"></div>
               Current Node
             </a>
           </li>
@@ -79,6 +79,12 @@ function OptionsBar() {
             <a>
               <div className="outline outline-2 outline-blue-200 h-4 w-4 inline-block bg-secondary"></div>
               Shortest-Path Node
+            </a>
+          </li>
+          <li>
+            <a>
+              <div className="outline outline-2 outline-blue-200 h-4 w-4 inline-block bg-orange-900"></div>
+              Weight Node
             </a>
           </li>
         </ul>
@@ -99,7 +105,9 @@ function OptionsBar() {
             </details>
           </li>
         </ul>
-        <a className="btn btn-primary">Visualise</a>
+        <btn className="btn btn-primary mr-1" onClick={runAlgo}>
+          Visualise
+        </btn>
       </div>
     </div>
   );

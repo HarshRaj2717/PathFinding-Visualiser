@@ -24,11 +24,15 @@ const nodeRoles = {
   },
   6: {
     // current node
-    classNames: "bg-orange-500",
+    classNames: "bg-purple-300",
   },
   7: {
     // shortest path node
     classNames: "bg-secondary",
+  },
+  8: {
+    // weight node
+    classNames: "bg-orange-900 hover:bg-orange-800 hover:cursor-crosshair",
   },
 };
 
@@ -46,20 +50,20 @@ export default function Node({ id, width, height, nodeStateProp }) {
     // Drawing/erasing the wall nodes
     if (!mouseIsDown) return;
     if (nodeStateProp[0] == 2 || nodeStateProp[0] == 3) return;
-    if (nodeStateProp[0] == 1) {
-      nodeStateProp[1](4);
-    } else if (nodeStateProp[0] == 4) {
+    if (nodeStateProp[0] == 4) {
       nodeStateProp[1](1);
+    } else {
+      nodeStateProp[1](4);
     }
   };
 
   const handleMouseClick = () => {
     // Drawing/erasing the wall nodes
     if (nodeStateProp[0] == 2 || nodeStateProp[0] == 3) return;
-    if (nodeStateProp[0] == 1) {
-      nodeStateProp[1](4);
-    } else if (nodeStateProp[0] == 4) {
+    if (nodeStateProp[0] == 4) {
       nodeStateProp[1](1);
+    } else {
+      nodeStateProp[1](4);
     }
   };
 

@@ -1,4 +1,5 @@
 import { allNodeStates } from "./Graph";
+import dijkstra from "./Algos/dijkstra";
 
 const allAlgos = {
   0: {
@@ -6,6 +7,7 @@ const allAlgos = {
   },
   1: {
     name: "Dijkstra's",
+    func: dijkstra,
   },
 };
 var curAlgo = 0;
@@ -22,4 +24,9 @@ export default function resetAllNodeStates(i) {
       allNodeStates[i][j][1](1);
     }
   }
+}
+
+export function runAlgo() {
+  if (curAlgo == 0) return;
+  allAlgos[curAlgo].func();
 }
