@@ -1,5 +1,4 @@
 var mouseIsDown = false;
-
 const commonNodeClassNames = "outline outline-1 outline-blue-200";
 
 const nodeRoles = {
@@ -35,13 +34,16 @@ const nodeRoles = {
 
 export default function Node({ id, width, height, nodeStateProp }) {
   if (id === "node-9-9") {
+    // This is Starting Node
     nodeStateProp[1](2);
   }
   if (id === "node-9-40") {
+    // This is Ending Node
     nodeStateProp[1](3);
   }
 
   const handleMouseEnter = () => {
+    // Drawing/erasing the wall nodes
     if (!mouseIsDown) return;
     if (nodeStateProp[0] == 2 || nodeStateProp[0] == 3) return;
     if (nodeStateProp[0] == 1) {
@@ -52,6 +54,7 @@ export default function Node({ id, width, height, nodeStateProp }) {
   };
 
   const handleMouseClick = () => {
+    // Drawing/erasing the wall nodes
     if (nodeStateProp[0] == 2 || nodeStateProp[0] == 3) return;
     if (nodeStateProp[0] == 1) {
       nodeStateProp[1](4);

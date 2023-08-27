@@ -4,6 +4,8 @@ import Row from "./Row/Row";
 const allNodeStates = new Array(18);
 
 function createAllNodeStates() {
+  // Makes a matrix of size 18*49 which stores the state/role
+  // of each Node on the graph as a React's `useState` hook
   for (var i = 0; i < 18; i++) {
     allNodeStates[i] = new Array(49);
     for (var j = 0; j < 49; j++) {
@@ -19,7 +21,8 @@ export default function Graph() {
   const maxEachNodeWidth = 4;
 
   const setDimensions = () => {
-    // Set eachNodeHeight & eachNodeWidth based on the current window sizes
+    // Set eachNodeHeight & eachNodeWidth in `rem` based on the current window sizes
+    // to accomodate 18*49 nodes
     const padding = 0.5 * 16;
     const newEachNodeHeight =
       Math.min(
@@ -36,7 +39,7 @@ export default function Graph() {
   };
 
   useEffect(() => {
-    // Update the each Node's dimensions if user changes window size
+    // Update the each Node's dimensions if window size changes
     setDimensions();
     window.addEventListener("resize", setDimensions);
     return () => {
