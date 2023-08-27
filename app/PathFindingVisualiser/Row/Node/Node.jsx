@@ -34,7 +34,7 @@ const nodeRoles = {
 };
 
 export default function Node({ id, width, height, nodeStateProp }) {
-  if (id === "node-9-10") {
+  if (id === "node-9-9") {
     nodeStateProp[1](2);
   }
   if (id === "node-9-40") {
