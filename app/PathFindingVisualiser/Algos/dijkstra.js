@@ -2,7 +2,7 @@ import PriorityQueue from "js-priority-queue";
 import { allNodeStates } from "../Graph";
 import * as helpers from "./helpers";
 
-export default function dijkstra() {
+export default async function dijkstra() {
   // Priority queue which will dequeue the numerically smallest distance first
   const pq = new PriorityQueue({
     comparator: (a, b) => a.distance - b.distance,
@@ -102,9 +102,15 @@ export default function dijkstra() {
       }
     }
 
-    // set curNode state as visited node
-    if (allNodeStates[i][j][0] != 2 || allNodeStates[i][j][0] != 3)
-      allNodeStates[i][j][1](5);
+    // set curNode state as visited node & also making an animation by delaying the changing of node states
+    if (allNodeStates[i][j][0] != 2 || allNodeStates[i][j][0] != 3) {
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          allNodeStates[i][j][1](5);
+          resolve();
+        }, 1);
+      });
+    }
   }
 
   // Exiting if the endingNode hasn't been reached i.e. there is no posssible path to it
@@ -119,7 +125,13 @@ export default function dijkstra() {
     curNode = distances[helpers.toNodeNumber(curNode[0], curNode[1], width)][1];
   }
   shortestPathNodes.reverse();
-  shortestPathNodes.forEach((curNode) => {
-    allNodeStates[curNode[0]][curNode[1]][1](7);
-  });
+  for (var i = 0; i < shortestPathNodes.length; i++) {
+    curNode = shortestPathNodes[i];
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        allNodeStates[curNode[0]][curNode[1]][1](7);
+        resolve();
+      }, 1);
+    });
+  }
 }
