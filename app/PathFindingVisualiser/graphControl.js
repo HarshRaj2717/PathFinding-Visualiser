@@ -27,8 +27,10 @@ export default function resetAllNodeStates(i) {
   }
 }
 
-export function runAlgo() {
+export async function runAlgo() {
+  document.getElementById("main-body").classList.add("pointer-events-none")
   helpers.clearAllPaths();
   if (curAlgo == 0) return;
-  allAlgos[curAlgo].func();
+  await allAlgos[curAlgo].func();
+  document.getElementById("main-body").classList.remove("pointer-events-none")
 }

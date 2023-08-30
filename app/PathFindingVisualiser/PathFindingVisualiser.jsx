@@ -115,7 +115,7 @@ function OptionsBar() {
 
 export default function PathFindingVisualiser() {
   return (
-    <main>
+    <main id="main-body">
       <NavBar />
       <OptionsBar />
       <Graph />
