@@ -1,5 +1,6 @@
 import { allNodeStates } from "./Graph";
 import dijkstra from "./Algos/dijkstra";
+import * as helpers from "./Algos/helpers";
 
 const allAlgos = {
   0: {
@@ -27,6 +28,7 @@ export default function resetAllNodeStates(i) {
 }
 
 export function runAlgo() {
+  helpers.clearAllPaths();
   if (curAlgo == 0) return;
   allAlgos[curAlgo].func();
 }
