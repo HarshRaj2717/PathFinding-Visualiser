@@ -23,7 +23,6 @@ export default function dijkstra() {
   );
 
   var distances = new Array(allNodeStates.length * width);
-  console.log(distances);
   for (var i = 0; i < allNodeStates.length * width; i++) {
     // `Infinity` denotes that the distance to reach any node is initially 0, later on it will be replaced by the minimum distance from starting node
     // `[-1, -1]` denotes a node with no parents, later on the nodes will store thier parent node's indexes here
@@ -53,10 +52,10 @@ export default function dijkstra() {
       const nextNodeNumber = helpers.toNodeNumber(i - 1, j, width);
       if (dist + nextNodeWeight < distances[nextNodeNumber][0]) {
         distances[nextNodeNumber][0] = dist + nextNodeWeight;
-        distances[nextNodeNumber][1] = [i - 1, j];
+        distances[nextNodeNumber][1] = [i, j];
         pq.queue({
           distance: distances[nextNodeNumber][0],
-          indexes: distances[nextNodeNumber][1],
+          indexes: [i - 1, j],
         });
       }
     }
@@ -67,10 +66,10 @@ export default function dijkstra() {
       const nextNodeNumber = helpers.toNodeNumber(i + 1, j, width);
       if (dist + nextNodeWeight < distances[nextNodeNumber][0]) {
         distances[nextNodeNumber][0] = dist + nextNodeWeight;
-        distances[nextNodeNumber][1] = [i + 1, j];
+        distances[nextNodeNumber][1] = [i, j];
         pq.queue({
           distance: distances[nextNodeNumber][0],
-          indexes: distances[nextNodeNumber][1],
+          indexes: [i + 1, j],
         });
       }
     }
@@ -81,10 +80,10 @@ export default function dijkstra() {
       const nextNodeNumber = helpers.toNodeNumber(i, j - 1, width);
       if (dist + nextNodeWeight < distances[nextNodeNumber][0]) {
         distances[nextNodeNumber][0] = dist + nextNodeWeight;
-        distances[nextNodeNumber][1] = [i, j - 1];
+        distances[nextNodeNumber][1] = [i, j];
         pq.queue({
           distance: distances[nextNodeNumber][0],
-          indexes: distances[nextNodeNumber][1],
+          indexes: [i, j - 1],
         });
       }
     }
@@ -95,10 +94,10 @@ export default function dijkstra() {
       const nextNodeNumber = helpers.toNodeNumber(i, j + 1, width);
       if (dist + nextNodeWeight < distances[nextNodeNumber][0]) {
         distances[nextNodeNumber][0] = dist + nextNodeWeight;
-        distances[nextNodeNumber][1] = [i, j + 1];
+        distances[nextNodeNumber][1] = [i, j];
         pq.queue({
           distance: distances[nextNodeNumber][0],
-          indexes: distances[nextNodeNumber][1],
+          indexes: [i, j + 1],
         });
       }
     }
@@ -121,6 +120,6 @@ export default function dijkstra() {
   }
   shortestPathNodes.reverse();
   shortestPathNodes.forEach((curNode) => {
-    allNodeStates[curNode][1](7);
+    allNodeStates[curNode[0]][curNode[1]][1](7);
   });
 }
