@@ -37,7 +37,6 @@ export default function dijkstra() {
 
   while (pq.length != 0) {
     const curNode = pq.dequeue();
-    console.log(curNode);
     const dist = curNode.distance;
     const [i, j] = curNode.indexes;
     const curNodeNumber = helpers.toNodeNumber(i, j, width);
@@ -46,6 +45,7 @@ export default function dijkstra() {
     distances[curNodeNumber][2] = true;
     if (allNodeStates[i][j][0] != 2 || allNodeStates[i][j][0] != 3)
       allNodeStates[i][j][1](6);
+    if (distances[endingNodeNumber][2] === true) break;
 
     // up
     if (i > 0 && allNodeStates[i - 1][j][0] != 4) {
