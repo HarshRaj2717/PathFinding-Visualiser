@@ -28,9 +28,9 @@ export default function resetAllNodeStates(i) {
 }
 
 export async function runAlgo() {
+  if (curAlgo == 0) return;
   document.getElementById("main-body").classList.add("pointer-events-none")
   helpers.clearAllPaths();
-  if (curAlgo == 0) return;
   await allAlgos[curAlgo].func();
   document.getElementById("main-body").classList.remove("pointer-events-none")
 }
