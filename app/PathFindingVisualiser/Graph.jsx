@@ -61,7 +61,7 @@ export default function Graph() {
   ));
 
   return (
-    <main className="select-none p-1 grid place-items-center">{allRows}</main>
+    <main id="graph-main" className="select-none p-1 grid place-items-center">{allRows}</main>
   );
 }
 

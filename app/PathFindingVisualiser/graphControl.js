@@ -29,8 +29,12 @@ export default function resetAllNodeStates(i) {
 
 export async function runAlgo() {
   if (curAlgo == 0) return;
-  document.getElementById("main-body").classList.add("pointer-events-none")
+  document.getElementById("graph-main").classList.add("pointer-events-none")
+  document.getElementById("visualise-btn").classList.add("btn-disabled")
+  document.getElementById("reset-all-btn").classList.add("btn-disabled")
   helpers.clearAllPaths();
   await allAlgos[curAlgo].func();
-  document.getElementById("main-body").classList.remove("pointer-events-none")
+  document.getElementById("graph-main").classList.remove("pointer-events-none")
+  document.getElementById("visualise-btn").classList.remove("btn-disabled")
+  document.getElementById("reset-all-btn").classList.remove("btn-disabled")
 }

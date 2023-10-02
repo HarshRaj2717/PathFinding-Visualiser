@@ -90,7 +90,7 @@ function OptionsBar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-sm normal-case" onClick={resetAllNodeStates}>
+        <button id="reset-all-btn" className="btn btn-sm normal-case" onClick={resetAllNodeStates}>
           Reset All
         </button>
         <ul className="menu menu-horizontal px-1">
@@ -105,7 +105,7 @@ function OptionsBar() {
             </details>
           </li>
         </ul>
-        <btn className="btn btn-primary mr-1" onClick={runAlgo}>
+        <btn id="visualise-btn" className="btn btn-primary mr-1" onClick={runAlgo}>
           Visualise
         </btn>
       </div>
