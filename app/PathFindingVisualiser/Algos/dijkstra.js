@@ -24,7 +24,7 @@ export default async function dijkstra() {
 
   var distances = new Array(allNodeStates.length * width);
   for (var i = 0; i < allNodeStates.length * width; i++) {
-    // `Infinity` denotes that the distance to reach any node is initially 0, later on it will be replaced by the minimum distance from starting node
+    // `Infinity` denotes that a path to that node hasn't been found yet or such a path doesn't exist at all, later on it will be replaced by the minimum distance from starting node
     // `[-1, -1]` denotes a node with no parents, later on the nodes will store thier parent node's indexes here
     // `false` denotes an un-traversed node, later on traversed nodes will have a `true` here
     distances[i] = [Infinity, [-1, -1], false];
