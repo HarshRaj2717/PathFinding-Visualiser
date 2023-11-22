@@ -1,5 +1,6 @@
 import { allNodeStates } from "./Graph";
 import dijkstra from "./Algos/dijkstra";
+import a_star from "./Algos/a_star";
 import * as helpers from "./Algos/helpers";
 
 const allAlgos = {
@@ -10,6 +11,10 @@ const allAlgos = {
     name: "Dijkstra's",
     func: dijkstra,
   },
+  2: {
+    name: "A*",
+    func: a_star,
+  }
 };
 var curAlgo = 0;
 

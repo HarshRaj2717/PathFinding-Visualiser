@@ -101,6 +101,9 @@ function OptionsBar() {
                 <li>
                   <btn onClick={() => selectAlgo(1)}>Dijkstra's</btn>
                 </li>
+                <li>
+                  <btn onClick={() => selectAlgo(2)}>A*</btn>
+                </li>
               </ul>
             </details>
           </li>
