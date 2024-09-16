@@ -9,7 +9,7 @@ export default async function dijkstra() {
   });
 
   const width = allNodeStates[0].length;
-  const startingNode = [9, 10];
+  const startingNode = [9, 9];
   const endingNode = [9, 40];
   const startingNodeNumber = helpers.toNodeNumber(
     startingNode[0],
